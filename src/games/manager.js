@@ -18,7 +18,7 @@ export default class Manager {
     console.log(`Question: ${this.game.toString()}`);
     const answer = question('Your answer: ');
     const isCorrect = this.game.isRight(answer);
-    console.log(isCorrect ? 'Correct!' : 'Wrong!');
+    console.log(isCorrect ? 'Correct!' : `Wrong! Correct answer is ${this.game.result()}`);
     return this.playRound(rounds - 1) + Number(isCorrect);
   }
 
