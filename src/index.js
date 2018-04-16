@@ -1,4 +1,4 @@
-import { question } from "readline-sync";
+import { question } from 'readline-sync';
 
 const welcome = () => {
   const name = question('May I have your name? ');
