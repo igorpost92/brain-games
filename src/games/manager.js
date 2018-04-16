@@ -1,6 +1,4 @@
 import { question } from 'readline-sync';
-// import Even from './even';
-// import Calc from './calc';
 
 export default class Manager {
   constructor(player, game) {

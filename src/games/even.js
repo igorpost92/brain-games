@@ -4,7 +4,6 @@ export const gameDescription = 'Answer "yes" if number even otherwise answer "no
 
 export default class Even {
   constructor() {
-    this.a = 1;
     this.nextRound();
   }
 
