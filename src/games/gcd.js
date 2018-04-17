@@ -1,4 +1,7 @@
 import rand from '../functions/rand';
+import startGame from '..';
+
+const description = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
   if (a === 0 || b === 0) {
@@ -10,9 +13,12 @@ const gcd = (a, b) => {
 };
 
 const make = (a = rand(50), b = rand(50)) => ({
-  description: 'Find the greatest common divisor of given numbers.',
   question: () => `${a} ${b}`,
   result: () => `${gcd(a, b)}`,
 });
 
-export default make;
+const play = () => {
+  startGame(make, description);
+};
+
+export default play;

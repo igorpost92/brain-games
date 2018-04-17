@@ -1,19 +1,8 @@
 import { question } from 'readline-sync';
-import makeEven from './games/even';
-import makeCalc from './games/calc';
-import makeGcd from './games/gcd';
 
-const games = ({
-  even: makeEven,
-  calc: makeCalc,
-  gcd: makeGcd,
-});
-
-const startGame = (gameName) => {
-  const createGame = games[gameName];
-
+const startGame = (createGame, description) => {
   console.log('Welcome to the Brain Games!');
-  console.log(createGame().description);
+  console.log(description);
   const name = question('May I have your name? ');
   console.log(`Hello, ${name}!`);
 
