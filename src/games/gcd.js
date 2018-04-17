@@ -1,27 +1,18 @@
-import rand from '../rand';
-import gcd from '../gcd';
+import rand from '../functions/rand';
 
-export const gameDescription = 'Find the greatest common divisor of given numbers.';
-
-export default class GCD {
-  constructor() {
-    this.nextRound();
+const gcd = (a, b) => {
+  if (a === 0 || b === 0) {
+    return a + b;
+  } else if (a > b) {
+    return gcd(a % b, b);
   }
+  return gcd(a, b % a);
+};
 
-  nextRound() {
-    this.a = rand(50);
-    this.b = rand(50);
-  }
+const make = (a = rand(50), b = rand(50)) => ({
+  description: 'Find the greatest common divisor of given numbers.',
+  question: () => `${a} ${b}`,
+  result: () => `${gcd(a, b)}`,
+});
 
-  toString() {
-    return `${this.a} and ${this.b}`;
-  }
-
-  result() {
-    return String(gcd(this.a, this.b));
-  }
-
-  isRight(value) {
-    return this.result() === value;
-  }
-}
+export default make;

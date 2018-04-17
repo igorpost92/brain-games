@@ -1,25 +1,9 @@
-import rand from '../rand';
+import rand from '../functions/rand';
 
-export const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
+const make = (a = rand()) => ({
+  description: 'Answer "yes" if number even otherwise answer "no".',
+  question: () => `${a}`,
+  result: () => (a % 2 === 0 ? 'yes' : 'no'),
+});
 
-export default class Even {
-  constructor() {
-    this.nextRound();
-  }
-
-  nextRound() {
-    this.a = rand();
-  }
-
-  toString() {
-    return `${this.a}`;
-  }
-
-  result() {
-    return this.a % 2 === 0 ? 'yes' : 'no';
-  }
-
-  isRight(value) {
-    return this.result() === value;
-  }
-}
+export default make;

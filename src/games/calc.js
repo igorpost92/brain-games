@@ -1,6 +1,4 @@
-import rand from '../rand';
-
-export const gameDescription = 'What is the result of the expression?';
+import rand from '../functions/rand';
 
 const operations = [
   { name: '+', ev: (a, b) => a + b },
@@ -8,26 +6,10 @@ const operations = [
   { name: '*', ev: (a, b) => a * b },
 ];
 
-export default class Calc {
-  constructor() {
-    this.nextRound();
-  }
+const make = (a = rand(11), b = rand(11), op = operations[rand(3)]) => ({
+  description: 'What is the result of the expression?',
+  question: () => `${a} ${op.name} ${b}`,
+  result: () => `${op.ev(a, b)}`,
+});
 
-  nextRound() {
-    this.a = rand(11);
-    this.b = rand(11);
-    this.op = operations[rand(3)];
-  }
-
-  toString() {
-    return `${this.a} ${this.op.name} ${this.b}`;
-  }
-
-  result() {
-    return String(this.op.ev(this.a, this.b));
-  }
-
-  isRight(value) {
-    return this.result() === value;
-  }
-}
+export default make;
