@@ -3,11 +3,11 @@ install:
 
 debug:
 	npm run compile
-	
+
 start:
 	npm run babel-node -- src/bin/brain-games.js
 
-publish:
+publish: lint;
 	npm publish
 
 build: lint;
