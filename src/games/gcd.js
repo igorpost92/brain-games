@@ -13,8 +13,8 @@ const gcd = (a, b) => {
 };
 
 const make = (a = rand(50), b = rand(50)) => ({
-  question: () => `${a} ${b}`,
-  result: () => `${gcd(a, b)}`,
+  question: `${a} ${b}`,
+  result: `${gcd(a, b)}`,
 });
 
 const play = () => {

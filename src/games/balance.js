@@ -58,8 +58,8 @@ const balance = (num) => {
 const description = 'Balance the given number.';
 
 const make = (a = rand(10000)) => ({
-  question: () => `${a}`,
-  result: () => `${balance(a)}`,
+  question: `${a}`,
+  result: `${balance(a)}`,
 });
 
 const play = () => {

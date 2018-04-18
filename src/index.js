@@ -9,9 +9,10 @@ const startGame = (createGame, description) => {
   const rounds = 3;
   for (let i = 0; i < rounds; i += 1) {
     const game = createGame();
-    console.log(`Question: ${game.question()}`);
+
+    console.log(`Question: ${game.question}`);
     const answer = question('Your answer: ');
-    const result = game.result();
+    const { result } = game;
     const isCorrect = result === answer;
 
     if (!isCorrect) {
@@ -19,7 +20,7 @@ const startGame = (createGame, description) => {
       console.log(`Let's try again, ${name}!`);
       return;
     }
-    console.log('Correct');
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${name}!`);
 };

@@ -10,8 +10,8 @@ const operations = [
 ];
 
 const make = (a = rand(11), b = rand(11), op = operations[rand(3)]) => ({
-  question: () => `${a} ${op.name} ${b}`,
-  result: () => `${op.ev(a, b)}`,
+  question: `${a} ${op.name} ${b}`,
+  result: `${op.ev(a, b)}`,
 });
 
 const play = () => {
