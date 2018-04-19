@@ -1,17 +1,5 @@
-import { rand } from '../utils';
+import { rand, compareArrays } from '../utils';
 import startGame from '..';
-
-const compareArrays = (arr1, arr2) => {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0, len = arr1.length; i < len; i += 1) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
 
 const isBalanced = (num) => {
   const orig = [...String(num)];
