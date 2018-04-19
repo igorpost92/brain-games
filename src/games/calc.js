@@ -9,10 +9,16 @@ const operations = [
   { name: '*', ev: (a, b) => a * b },
 ];
 
-const make = (a = rand(11), b = rand(11), op = operations[rand(3)]) => ({
-  question: `${a} ${op.name} ${b}`,
-  result: `${op.ev(a, b)}`,
-});
+const make = (a, b, op) => {
+  const iA = a || rand(11);
+  const iB = b || rand(11);
+  const iOp = op || operations[rand(3)];
+
+  return {
+    question: `${iA} ${iOp.name} ${iB}`,
+    result: `${iOp.ev(iA, iB)}`,
+  };
+};
 
 const play = () => {
   startGame(make, description);

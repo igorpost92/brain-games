@@ -57,10 +57,14 @@ const balance = (num) => {
 
 const description = 'Balance the given number.';
 
-const make = (a = rand(10000)) => ({
-  question: `${a}`,
-  result: `${balance(a)}`,
-});
+const make = (a) => {
+  const iA = a || rand(10000);
+
+  return ({
+    question: `${iA}`,
+    result: `${balance(iA)}`,
+  });
+};
 
 const play = () => {
   startGame(make, description);

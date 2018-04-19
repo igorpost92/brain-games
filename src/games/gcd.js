@@ -12,10 +12,15 @@ const gcd = (a, b) => {
   return gcd(a, b % a);
 };
 
-const make = (a = rand(50), b = rand(50)) => ({
-  question: `${a} ${b}`,
-  result: `${gcd(a, b)}`,
-});
+const make = (a, b) => {
+  const iA = a || rand(50);
+  const iB = b || rand(50);
+
+  return {
+    question: `${iA} ${iB}`,
+    result: `${gcd(iA, iB)}`,
+  };
+};
 
 const play = () => {
   startGame(make, description);

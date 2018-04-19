@@ -4,18 +4,28 @@ import startGame from '..';
 const description = 'Is this number prime?';
 
 const isPrime = (num) => {
-  for (let i = 2, end = num / 2; i < end; i += 1) {
-    if (num % i === 0) {
+  const limit = num / 2;
+
+  const iter = (i) => {
+    if (i > limit) {
+      return true;
+    } else if (num % i === 0) {
       return false;
     }
-  }
-  return true;
+    return iter(i + 1);
+  };
+
+  return iter(2);
 };
 
-const make = (a = rand(100)) => ({
-  question: `${a}`,
-  result: isPrime(a) ? 'yes' : 'no',
-});
+const make = (a) => {
+  const iA = a || rand(100);
+
+  return {
+    question: `${iA}`,
+    result: isPrime(iA) ? 'yes' : 'no',
+  };
+};
 
 const play = () => {
   startGame(make, description);

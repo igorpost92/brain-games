@@ -1,6 +1,6 @@
 {
   "name": "post_hexlet-js_project-brain-games",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "Hexlet - Backend JS project 1 - Brain Games",
   "main": "index.js",
   "scripts": {
