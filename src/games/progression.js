@@ -1,4 +1,4 @@
-import rand from '../functions/rand';
+import { rand } from '../utils';
 import startGame from '..';
 
 const description = 'What number is missing in this progression?';

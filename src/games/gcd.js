@@ -1,4 +1,4 @@
-import rand from '../functions/rand';
+import { rand } from '../utils';
 import startGame from '..';
 
 const description = 'Find the greatest common divisor of given numbers.';
