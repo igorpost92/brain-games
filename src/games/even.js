@@ -3,12 +3,12 @@ import startGame from '..';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
-const make = (a) => {
-  const iA = a || rand();
+const make = () => {
+  const a = rand();
 
   return {
-    question: `${iA}`,
-    result: iA % 2 === 0 ? 'yes' : 'no',
+    question: `${a}`,
+    result: a % 2 === 0 ? 'yes' : 'no',
   };
 };
 

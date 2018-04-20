@@ -7,7 +7,8 @@ const isBalanced = (num) => {
   if (!compareArrays(orig, sorted)) {
     return false;
   }
-  return sorted[sorted.length - 1] - sorted[0] < 2;
+  const diff = sorted[sorted.length - 1] - sorted[0];
+  return diff < 2;
 };
 
 const balance = (num) => {
@@ -16,41 +17,19 @@ const balance = (num) => {
   }
 
   const sorted = [...String(num)].sort();
-  const len = sorted.length - 1;
-
-  let addToIndex = -1;
-  for (let i = 0; i < len; i += 1) {
-    const curr = sorted[i];
-    const next = sorted[i + 1];
-    if (curr < next) {
-      addToIndex = i;
-      break;
-    }
-  }
-
-  let subtractFromIndex = -1;
-  for (let i = len; i > 0; i -= 1) {
-    const curr = sorted[i];
-    const next = sorted[i - 1];
-    if (curr > next) {
-      subtractFromIndex = i;
-      break;
-    }
-  }
-
-  sorted[subtractFromIndex] -= 1;
-  sorted[addToIndex] = Number(sorted[addToIndex]) + 1;
-  return balance(sorted.join(''));
+  sorted[sorted.length - 1] -= 1;
+  sorted[0] = Number(sorted[0]) + 1;
+  return balance(sorted.sort().join(''));
 };
 
 const description = 'Balance the given number.';
 
-const make = (a) => {
-  const iA = a || rand(10000);
+const make = () => {
+  const a = rand(10000);
 
   return ({
-    question: `${iA}`,
-    result: `${balance(iA)}`,
+    question: `${a}`,
+    result: `${balance(a)}`,
   });
 };
 
